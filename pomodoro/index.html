@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h1>Smart Study Timer</h1>
+
+    <div class="layout">
+      <!-- Left: Pomodoro -->
+      <div class="panel panel-timer">
+  <div class="timer-header">
+    <button class="mode-btn active" data-mode="focus">Focus 25</button>
+    <button class="mode-btn" data-mode="short">Short 5</button>
+    <button class="mode-btn" data-mode="long">Long 15</button>
+    <button class="mode-btn" data-mode="deep">Deep 50</button>
+  </div>
+<div class="micro-session">
+  <button id="micro-session-btn">
+    I don’t feel like studying (5‑min start)
+  </button>
+</div>
+  <div class="timer-ring">
+    <div id="time">25:00</div>
+  </div>
+
+
+  <div class="controls">
+    <button id="start">Start</button>
+    <button id="pause">Pause</button>
+    <button id="reset">Reset</button>
+  </div>
+
+  <div class="session-dots" id="session-dots">
+    <!-- dots will be created by JS -->
+  </div>
+
+  <!-- Break overlay -->
+  <div class="break-overlay" id="break-overlay">
+    <div class="break-message">
+      <h3>Session complete 🎉</h3>
+      <p>Time for a break.</p>
+      <button id="overlay-close">OK</button>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+  <div class="tasks">
+  <h2>Tasks</h2>
+  <div class="task-input-row">
+    <input id="task-title" type="text" placeholder="Add a task...">
+
+    <input id="task-subject" type="text" placeholder="Subject">
+
+    <select id="task-difficulty">
+      <option value="Easy">Easy</option>
+      <option value="Medium" selected>Medium</option>
+      <option value="Hard">Hard</option>
+    </select>
+
+    <input id="task-deadline" type="date">
+
+    <button id="add-task">Add</button>
+  </div>
+<div class="plan-section">
+  <h2>Today’s Plan</h2>
+
+  <div class="plan-controls">
+    <input id="available-min" type="number" min="25" step="25"
+           placeholder="Available minutes today">
+    <button id="plan-day-btn">Plan my day</button>
+  </div>
+
+  <ul id="plan-list"></ul>
+</div>
+
+<div class="current-block">
+  <h3>Current block</h3>
+  <p id="current-block-text">No block selected.</p>
+  <button id="next-block-btn">Start next block</button>
+</div>
+
+  <ul id="task-list"></ul>
+</div>
+<div class="habit-stats">
+  <div>XP: <span id="xp-value">0</span></div>
+  <div>Day streak: <span id="streak-value">0</span> days</div>
+  <div>Focus blocks today: <span id="sessions-today">0</span></div>
+</div>
+<div id="idle-banner">
+  <span id="idle-text">
+    You’ve been idle for a while. Start a 5‑minute micro session?
+  </span>
+  <button id="idle-start-btn">Start 5 min</button>
+</div>
+<div class="ai-panel">
+  <h2>AI Study Helper</h2>
+  <div id="ai-chat-window" class="ai-chat-window">
+    <!-- messages will be appended here -->
+  </div>
+  <div class="ai-input-row">
+    <input id="ai-input" type="text" placeholder="Ask a doubt or request a summary...">
+    <button id="ai-send-btn">Ask</button>
+  </div>
+</div>
+<div class="room-section">
+  <h2>Study room</h2>
+  <div class="room-join-row">
+    <input id="room-code-input" type="text" placeholder="Room code (e.g. signals-101)">
+    <button id="join-room-btn">Join</button>
+  </div>
+  <div id="room-status-text" class="room-status-text">
+    Not in a room.
+  </div>
+  <ul id="room-members"></ul>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
